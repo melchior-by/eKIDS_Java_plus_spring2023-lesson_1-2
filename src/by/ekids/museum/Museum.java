@@ -1,6 +1,8 @@
 package by.ekids.museum;
 
-public class Museum {
+import by.ekids.common.Visitable;
+
+public class Museum implements Visitable {
     private String name;
     private int collectionSize;
     private String[] departments;
@@ -50,5 +52,17 @@ public class Museum {
         this.collectionSize = collectionSize;
         this.departments = departments;
         this.dayOff = dayOff;
+    }
+
+    @Override
+    public Day[] provideVisitDays() {
+        Day[] week = Day.values();
+        Day[] values = new Day[week.length];
+        for (int i = 0; i < week.length; i++) {
+            if(week[i] != dayOff) {
+                values[i] = week[i];
+            }
+        }
+        return values;
     }
 }
