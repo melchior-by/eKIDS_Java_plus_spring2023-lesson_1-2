@@ -3,7 +3,17 @@ package by.ekids.museum;
 public class Museum {
     private String name;
     private int collectionSize;
-    private String[] department;
+    private String[] departments;
+
+    private Day dayOff;
+
+    public Day getDayOff() {
+        return dayOff;
+    }
+
+    public void setDayOff(Day dayOff) {
+        this.dayOff = dayOff;
+    }
 
     public String getName() {
         return name;
@@ -18,29 +28,27 @@ public class Museum {
     }
 
     public void setCollectionSize(int collectionSize) {
-        this.collectionSize = collectionSize;
-    }
-
-    public String[] getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String[] department) {
-        this.department = department;
-    }
-
-    public Museum(String name, int collectionSize, String[] department) {
-        this.name = name;
-        this.collectionSize = collectionSize;
-        this.department = department;
-    }
-
-    public void printInfo() {
-        System.out.println("музей - " + name);
-        System.out.println("c размером коллекции: " + collectionSize + " экземпляров");
-        System.out.println("и тематикой: ");
-        for (int i = 0; i < department.length; i++) {
-            System.out.print(department[i] + " ");
+        if(collectionSize > 1000) {
+            throw new MuseumException();
         }
+        this.collectionSize = collectionSize;
+    }
+
+    public String[] getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(String[] departments) {
+        this.departments = departments;
+    }
+
+    public Museum(String name, int collectionSize, String[] departments, Day dayOff) {
+        this.name = name;
+        if(collectionSize > 1000) {
+            throw new MuseumException();
+        }
+        this.collectionSize = collectionSize;
+        this.departments = departments;
+        this.dayOff = dayOff;
     }
 }
