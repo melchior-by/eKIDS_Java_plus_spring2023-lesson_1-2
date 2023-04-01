@@ -8,6 +8,12 @@ public class Main {
                 Day.MONDAY);
         MuseumPrinter.setMuseum(museum1);
         MuseumPrinter.printInfo();
-        museum1.setCollectionSize(10000);
+        //museum1.setCollectionSize(10000);
+        Day[] visitDays = museum1.provideVisitDays();
+        for (int i = 0; i < visitDays.length; i++) {
+            if (visitDays[i] != null) {
+                System.out.println(visitDays[i].getName());
+            }
+        }
     }
 }

@@ -1,8 +1,10 @@
 package by.ekids.edu;
 
 import by.ekids.School;
+import by.ekids.common.Visitable;
+import by.ekids.museum.Day;
 
-public class Liceum extends School {
+public class Liceum extends School implements Visitable {
     @Override
     public void printCurrentActivity() {
         System.out.println("все по плану обчения, ученики ЭЛИТНО учатся");
@@ -18,5 +20,10 @@ public class Liceum extends School {
     public void printCurrentActivity(String action, int participants) {
         System.out.println(action);
         System.out.println("в нем участвует " + participants + " ЭЛИТНЫХ учеников");
+    }
+
+    @Override
+    public Day[] provideVisitDays() {
+        return new Day[]{Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY, Day.SATURDAY};
     }
 }
