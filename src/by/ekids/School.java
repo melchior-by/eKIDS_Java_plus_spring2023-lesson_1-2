@@ -1,6 +1,6 @@
 package by.ekids;
 
-public class School {
+public class School extends ScienceOrganisation {
     //переменные
     //простые, primitive
     //целочисленные
@@ -27,6 +27,7 @@ public class School {
     private String area = new String("Минский");
 
     public School(String name) {
+        super(name.length() * 100.1);
         this.name = name;
     }
 
@@ -40,6 +41,7 @@ public class School {
     }
 
     public School(int aNumberOfStudents, int numberOfTeachers, long funds, float averageHeight, double averageMarks, boolean gimnasium, String name, String area) {
+        super(aNumberOfStudents * 50.5);
         numberOfStudents = aNumberOfStudents;
         this.numberOfTeachers = numberOfTeachers;
         this.funds = funds;
@@ -51,6 +53,7 @@ public class School {
     }
 
     public School() {
+        super(null);
     }
 
     public void printCurrentActivity() {
